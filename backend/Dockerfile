@@ -19,8 +19,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
+# Copy startup script
+COPY start.sh .
+RUN chmod +x start.sh
+
 # Expose port (Railway will set PORT env variable)
 EXPOSE 8000
 
-# Run the application with Gunicorn
-CMD ["gunicorn", "app.main:app", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000"]
+# Run the application using startup script
+CMD ["./start.sh"]
