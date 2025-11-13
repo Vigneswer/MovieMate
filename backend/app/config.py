@@ -22,13 +22,10 @@ class Settings(BaseSettings):
     # CORS - Allow all localhost origins for development
     CORS_ORIGINS: str = "*"
     
-    # TMDB API
-    TMDB_API_KEY: str
-    
-    # OMDB API
+    # OMDB API (primary movie data source)
     OMDB_API_KEY: str
     
-    # Gemini API
+    # Gemini API (AI review generation)
     GEMINI_API_KEY: str
     
     # Project Info
