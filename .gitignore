@@ -17,6 +17,12 @@ backend/.env.local
 backend/.env.*
 !backend/.env.example
 
+# Frontend env files (keep example tracked)
+frontend/.env
+frontend/.env.local
+frontend/.env.*
+!frontend/.env.example
+
 # Python caches anywhere
 **/__pycache__/
 **/*.py[cod]

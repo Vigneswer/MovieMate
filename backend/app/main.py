@@ -15,9 +15,19 @@ app = FastAPI(
 )
 
 # Configure CORS - MUST be added before routes
+# Allow local development and production Vercel deployments
+allowed_origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+# Add environment-based CORS origins (for production)
+if settings.CORS_ORIGINS != "*":
+    allowed_origins.extend(settings.cors_origins_list)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],  # Explicit origins for CORS with credentials
+    allow_origins=allowed_origins if settings.CORS_ORIGINS != "*" else ["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -29,7 +39,7 @@ app.add_middleware(
 def startup_event():
     """Create database tables on startup."""
     # Import models to register them with Base
-    from app.models import movie, watch_party
+    from app.models import movie
     Base.metadata.create_all(bind=engine)
 
 # Include routers

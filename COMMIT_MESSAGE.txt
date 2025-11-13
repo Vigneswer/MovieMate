@@ -1,0 +1,27 @@
+# Suggested Git Commit Message
+
+```bash
+git add .
+git commit -m "feat: add production deployment configurations for Vercel and Railway
+
+- Add Vercel config (vercel.json) for frontend monorepo deployment
+- Add Railway config (Dockerfile, railway.json) for backend deployment
+- Add Gunicorn to requirements.txt for production server
+- Update frontend API service to use environment variable (VITE_API_URL)
+- Update backend CORS to support production origins
+- Add comprehensive deployment guide (DEPLOYMENT_GUIDE.md)
+- Add .env.example for frontend environment variables
+- Update .gitignore to exclude frontend .env files
+
+Deployment setup:
+- Frontend: Vercel (React + Vite)
+- Backend: Railway (FastAPI + PostgreSQL)
+- Auto-deploy on push to main branch"
+
+git push origin main
+```
+
+After pushing, follow the steps in `DEPLOYMENT_GUIDE.md` to deploy:
+1. Backend to Railway (with PostgreSQL)
+2. Frontend to Vercel
+3. Update CORS with Vercel URL

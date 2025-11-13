@@ -218,7 +218,7 @@ MIT License - Feel free to use this project for personal or commercial purposes.
 
 ## 🙏 Acknowledgments
 
-- [TMDB](https://www.themoviedb.org/) for providing the movie/TV show data API
+
 - [Lucide](https://lucide.dev/) for beautiful icons
 - [FastAPI](https://fastapi.tiangolo.com/) for the excellent framework
 - [React](https://react.dev/) for the UI library
