@@ -3,6 +3,9 @@ import { Sparkles, X, Loader, Star } from 'lucide-react';
 import toast from 'react-hot-toast';
 import './AIReviewGenerator.css';
 
+// Use environment variable for API URL, fallback to localhost for development
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
 const AIReviewGenerator = ({ movie, onClose, onReviewGenerated }) => {
   const [userComments, setUserComments] = useState('');
   const [generatedReview, setGeneratedReview] = useState('');
@@ -17,7 +20,7 @@ const AIReviewGenerator = ({ movie, onClose, onReviewGenerated }) => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:8000/api/movies/${movie.id}/generate-review?user_comments=${encodeURIComponent(userComments)}`,
+        `${API_BASE_URL}/api/movies/${movie.id}/generate-review?user_comments=${encodeURIComponent(userComments)}`,
         {
           method: 'POST',
           headers: {

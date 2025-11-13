@@ -38,13 +38,13 @@ const SearchAutocomplete = () => {
           tmdbSearchTVShows(query, 1)
         ]);
 
-        const movies = movieResults.results.slice(0, 8).map((item, idx) => ({
+        const movies = (movieResults?.results || []).slice(0, 8).map((item, idx) => ({
           ...item,
           type: 'movie',
           uniqueKey: `movie-${item.id}-${idx}`
         }));
         
-        const tvShows = tvResults.results.slice(0, 7).map((item, idx) => ({
+        const tvShows = (tvResults?.results || []).slice(0, 7).map((item, idx) => ({
           ...item,
           type: 'tv',
           uniqueKey: `tv-${item.id}-${idx}`
