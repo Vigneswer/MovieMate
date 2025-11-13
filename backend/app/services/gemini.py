@@ -37,6 +37,7 @@ class GeminiService:
             Generated review summary or None if failed
         """
         try:
+            
             rating_text = f"rated {user_rating}/10" if user_rating else "watched"
             
             prompt = f"""You are a movie review assistant. Based on the following information, generate a SHORT, engaging review summary (2-3 sentences maximum) that captures the user's perspective.

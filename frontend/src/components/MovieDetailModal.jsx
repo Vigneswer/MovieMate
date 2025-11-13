@@ -1,18 +1,17 @@
-import { X, Star, Calendar, Clock, Tv, Film, Heart, Trash2, Edit, Pen, Users, Sparkles } from 'lucide-react';
+import { X, Star, Calendar, Clock, Tv, Film, Heart, Trash2, Edit, Pen, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { deleteMovie, updateMovie, updateStatus, updateProgress } from '../services/movieService';
 import { STATUS_LABELS, WATCH_STATUS, PLATFORMS, formatRuntime, formatDate, getProgressPercentage } from '../utils/constants';
 import RatingReviewModal from './RatingReviewModal';
-import WatchPartyPlanner from './WatchPartyPlanner';
 import AIReviewGenerator from './AIReviewGenerator';
 import './MovieDetailModal.css';
+
 
 const MovieDetailModal = ({ movie, onClose, onUpdate, onToggleFavorite }) => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [episodesWatched, setEpisodesWatched] = useState(movie.episodes_watched || 0);
   const [showRatingModal, setShowRatingModal] = useState(false);
-  const [showWatchParty, setShowWatchParty] = useState(false);
   const [showAIReview, setShowAIReview] = useState(false);
   const [selectedPlatform, setSelectedPlatform] = useState(movie.platform || '');
 
@@ -211,14 +210,6 @@ const MovieDetailModal = ({ movie, onClose, onUpdate, onToggleFavorite }) => {
           )}
 
           <div className="modal-actions">
-            {/* Temporarily disabled - Watch Party feature under development */}
-            {/* <button 
-              className="action-btn party"
-              onClick={() => setShowWatchParty(true)}
-            >
-              <Users size={18} />
-              Plan Watch Party
-            </button> */}
             {(movie.status === 'completed' || movie.status === 'watching') && (
               <button 
                 className="action-btn ai-review"
@@ -271,14 +262,6 @@ const MovieDetailModal = ({ movie, onClose, onUpdate, onToggleFavorite }) => {
           }}
         />
       )}
-
-      {/* Temporarily disabled - Watch Party feature under development */}
-      {/* {showWatchParty && (
-        <WatchPartyPlanner
-          movie={movie}
-          onClose={() => setShowWatchParty(false)}
-        />
-      )} */}
     </div>
   );
 };
