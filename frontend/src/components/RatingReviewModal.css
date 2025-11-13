@@ -1,0 +1,151 @@
+.rating-modal {
+  position: relative;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.rating-modal-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+}
+
+.rating-modal-subtitle {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin: 0 0 2rem 0;
+  text-align: center;
+}
+
+.rating-section {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.rating-section label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 1rem;
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.star-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.star-button:hover {
+  transform: scale(1.1);
+}
+
+.rating-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fbbf24;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 0.5rem;
+}
+
+.review-textarea,
+.notes-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background: #0f172a;
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 0.5rem;
+  color: #f1f5f9;
+  font-size: 0.875rem;
+  font-family: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  transition: all 0.2s ease;
+}
+
+.review-textarea:focus,
+.notes-textarea:focus {
+  outline: none;
+  border-color: #2dd4bf;
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.1);
+}
+
+.char-count {
+  font-size: 0.75rem;
+  color: #64748b;
+  text-align: right;
+  margin: 0.25rem 0 0 0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 0.5rem;
+  color: #f1f5f9;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: #2dd4bf;
+  color: #2dd4bf;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  background: #2dd4bf;
+  border: none;
+  border-radius: 0.5rem;
+  color: #0f172a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #14b8a6;
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

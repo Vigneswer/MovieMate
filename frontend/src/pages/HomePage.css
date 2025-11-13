@@ -1,0 +1,138 @@
+.home-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.home-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.1) 0%, rgba(30, 41, 59, 0.3) 100%);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  position: relative;
+}
+
+.home-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 2rem 0;
+}
+
+.home-hero .search-bar {
+  margin: 0 auto;
+}
+
+.surprise-me-btn {
+  margin-top: 1.5rem;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #1f2937;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+}
+
+.surprise-me-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.5);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.surprise-me-btn:active {
+  transform: translateY(-1px);
+}
+
+.surprise-me-btn svg {
+  animation: sparkle-pulse 2s ease-in-out infinite;
+}
+
+@keyframes sparkle-pulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(180deg); }
+}
+
+.home-content {
+  margin-top: 2rem;
+}
+
+.collection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.collection-count {
+  font-size: 0.875rem;
+  color: #64748b;
+  background: rgba(45, 212, 191, 0.1);
+  padding: 0.375rem 0.875rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(45, 212, 191, 0.2);
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #64748b;
+  font-size: 1.125rem;
+}
+
+@media (max-width: 1024px) {
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page {
+    padding: 1rem;
+  }
+
+  .home-hero {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .home-title {
+    font-size: 1.75rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,23 @@
+# Root ignores
+
+# Python venv at repo root
+.venv/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backend env files (keep example tracked)
+backend/.env
+backend/.env.local
+backend/.env.*
+!backend/.env.example
+
+# Python caches anywhere
+**/__pycache__/
+**/*.py[cod]
+
