@@ -579,7 +579,7 @@ async def generate_ai_review(
     logger.info(f"🤖 Generating AI review for movie ID: {movie_id}")
     
     # Get movie from database
-    movie = movie_crud.get(db, movie_id)
+    movie = movie_crud.get_by_id(db, movie_id)
     if not movie:
         raise HTTPException(status_code=404, detail="Movie not found")
     

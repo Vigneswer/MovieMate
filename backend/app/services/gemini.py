@@ -6,7 +6,8 @@ from app.config import settings
 class GeminiService:
     """Service for interacting with Google Gemini API."""
     
-    BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent"
+    # Use v1beta API with gemini-2.0-flash
+    BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
     
     def __init__(self):
         self.api_key = settings.GEMINI_API_KEY
@@ -66,19 +67,31 @@ Generate a natural, conversational review summary that combines the plot context
                 json=payload,
                 headers={"Content-Type": "application/json"}
             )
-            response.raise_for_status()
+            
+            # Log detailed error if request fails
+            if response.status_code != 200:
+                error_body = response.text
+                print(f"❌ Gemini API Error (Status {response.status_code}): {error_body}")
+                response.raise_for_status()
+            
             data = response.json()
             
             if data.get("candidates") and len(data["candidates"]) > 0:
                 candidate = data["candidates"][0]
                 if candidate.get("content", {}).get("parts"):
-                    return candidate["content"]["parts"][0].get("text", "").strip()
+                    generated_text = candidate["content"]["parts"][0].get("text", "").strip()
+                    print(f"✅ Gemini API Success: Generated {len(generated_text)} characters")
+                    return generated_text
             
+            print(f"⚠️ Gemini API returned no candidates: {data}")
             return None
             
+        except httpx.HTTPStatusError as e:
+            print(f"❌ Gemini API HTTP Error: {e.response.status_code} - {e.response.text}")
+            raise
         except Exception as e:
-            print(f"Error generating review with Gemini: {e}")
-            return None
+            print(f"❌ Error generating review with Gemini: {type(e).__name__}: {e}")
+            raise
 
 
 # Create singleton instance
